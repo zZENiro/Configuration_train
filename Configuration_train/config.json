@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "Bis_dbConnStr": "Server=localhost; Database=bis_bd; Trusted_Connection=True"
+  }
+}
