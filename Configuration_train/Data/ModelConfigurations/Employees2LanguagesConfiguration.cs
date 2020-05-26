@@ -21,7 +21,7 @@ namespace Configuration_train.Data.ModelConfigurations
                    .HasForeignKey(fk => fk.LanguageId);
 
             builder.ToTable("employees_lang_conns")
-                   .HasKey(el => new string[] { $"{el.LanguageId}", "-", $"{el.EmployeeId}" });
+                   .HasKey(el => new { el.LanguageId, el.EmployeeId });
         }
     }
 }

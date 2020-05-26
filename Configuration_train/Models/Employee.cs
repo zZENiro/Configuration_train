@@ -22,12 +22,10 @@ namespace Configuration_train.Models
 
         public City City { get; set; }
 
-        [NotMapped]
-        public List<Company> CompaniesHistory { get => Employees2Companies.Select(conn => conn.Company).ToList(); }
+        // Companies History
         public List<Employees2Companies> Employees2Companies { get; set; }
 
-        [NotMapped]
-        public List<Language> Languages { get => Employees2Languages.Select(conn => conn.Language).ToList(); }
+        // Languages skills
         public List<Employees2Languages> Employees2Languages { get; set; }
     }
 }

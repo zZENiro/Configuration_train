@@ -18,6 +18,10 @@ namespace Configuration_train.Data.ModelConfigurations
 
             builder.Property(prop => prop.CityName)
                    .IsRequired(true);
+
+            builder.HasMany(prop => prop.Companies)
+                   .WithOne(prop => prop.City)
+                   .HasForeignKey("comp_id");
         }
     }
 }

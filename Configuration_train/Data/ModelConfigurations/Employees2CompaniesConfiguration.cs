@@ -21,7 +21,7 @@ namespace Configuration_train.Data.ModelConfigurations
                    .HasForeignKey(fk => fk.CompanyId);
 
             builder.ToTable("employees_companies_conn")
-                   .HasKey(k => $"{k.CompanyId}-{k.EmployeeId}");
+                   .HasKey(k => new { k.CompanyId, k.EmployeeId });
         }
     }
 }
