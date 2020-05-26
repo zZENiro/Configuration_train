@@ -4,14 +4,16 @@ using Configuration_train.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Configuration_train.Migrations
 {
     [DbContext(typeof(EmployeesDbContext))]
-    partial class EmployeesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200526193503_fix_companies_city_rel")]
+    partial class fix_companies_city_rel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

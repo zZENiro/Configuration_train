@@ -15,23 +15,27 @@ namespace Configuration_train.ModelViews
         public EmployeeViewModelCollection(EmployeesDbContext context)
         {
             _context = context;
-
-            InitializeCollecton();
+            Collection = InitializeCollecton();
         }
 
         public List<EmployeeViewModel> Collection { get; set; }
 
-        private void InitializeCollecton()
-        {
-            var src = _context.Employees
+        private List<EmployeeViewModel> InitializeCollecton() => 
+                         _context.Employees
                                  .Include(prop => prop.City)
                                  .Include(prop => prop.Company)
                                  .Include(prop => prop.Country)
                                  .Include(prop => prop.Employees2Companies)
                                  .Include(prop => prop.Employees2Languages)
-                                 .ToList();
-
-            
-        }
+                                 .ToList()
+                                 .Select(empl => new EmployeeViewModel()
+                                 {
+                                     Id         = empl.Id,
+                                     FirstName  = empl.FirstName,
+                                     SecondName = empl.SecondName,
+                                     City       = new CityViewModel()       { Id = empl.City.Id, CityName = empl.City.CityName },
+                                     Company    = new CompanyViewModel()    { Id = empl.Company.Id, Name = empl.Company.Name },
+                                     Country    = new CountryViewModel()    { Id = empl.Country.Id, CountryName = empl.Country.CountryName, FlagUrl = empl.Country.FlagUrl }
+                                 }).ToList();
     }
 }

@@ -17,6 +17,7 @@ namespace Configuration_train.Data
         public DbSet<Country> Countries { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<City> Cities { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -26,7 +27,6 @@ namespace Configuration_train.Data
             modelBuilder.ApplyConfiguration(new EmployeeModelConfiguration());
             modelBuilder.ApplyConfiguration(new Employees2CompaniesConfiguration());
             modelBuilder.ApplyConfiguration(new Employees2LanguagesConfiguration());
-            modelBuilder.ApplyConfiguration(new Companies2CitiesConfiguration());
         }
     }
 }

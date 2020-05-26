@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Configuration_train.ModelViews
 {
-    public class CompanyViewModel
+    public class CompanyViewModel 
     {
         public int Id { get; set; }
 
