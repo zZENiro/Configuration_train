@@ -28,14 +28,6 @@ namespace Configuration_train.ModelViews
                                  .Include(prop => prop.Employees2Companies)
                                  .Include(prop => prop.Employees2Languages)
                                  .ToList()
-                                 .Select(empl => new EmployeeViewModel()
-                                 {
-                                     Id         = empl.Id,
-                                     FirstName  = empl.FirstName,
-                                     SecondName = empl.SecondName,
-                                     City       = new CityViewModel()       { Id = empl.City.Id, CityName = empl.City.CityName },
-                                     Company    = new CompanyViewModel()    { Id = empl.Company.Id, Name = empl.Company.Name },
-                                     Country    = new CountryViewModel()    { Id = empl.Country.Id, CountryName = empl.Country.CountryName, FlagUrl = empl.Country.FlagUrl }
-                                 }).ToList();
+                                 .Select(empl => new EmployeeViewModel(empl)).ToList();
     }
 }
